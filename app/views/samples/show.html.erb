@@ -11,12 +11,12 @@
 </p>
 
 <% if @sample.samplefiles.attached? %>
-  <% @sample.samplefiles.each do |samplefile| %>
-    <p>
+  <p>
+    <% @sample.samplefiles.each do |samplefile| %>
       <strong>file:</strong>
-      <%= link_to samplefile.filename, rails_blob_path(samplefile) %> <br>
-    </p>
-  <% end %>
+      <%= link_to samplefile.filename, rails_blob_path(samplefile, disposition: "attachment") %> <br>
+    <% end %>
+  </p>
 <% end %>
 
 <%= link_to 'Edit', edit_sample_path(@sample) %> |
