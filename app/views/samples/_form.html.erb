@@ -1,3 +1,7 @@
+<%# https://kykt35.hatenablog.com/entry/2019/01/16/185057 
+  TODO:ここを参考に、削除も実装する %>
+
+
 <%= form_with(model: sample, local: true) do |form| %>
   <% if sample.errors.any? %>
     <div id="error_explanation">
@@ -22,10 +26,22 @@
   </div>
 
   <div class="field">
+    <% if @sample.samplefiles.attached? %>
+      <p>
+        <% @sample.samplefiles.each do |samplefile| %>
+          <strong>file:</strong>
+          <%= link_to samplefile.filename, rails_blob_path(samplefile) %> <br>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= form.file_field :samplefiles, multiple: true, direct_upload: true %><br>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
