@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sample.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sample.description %>
+</p>
+
+<% if @sample.samplefiles.attached? %>
+  <% @sample.samplefiles.each do |samplefile| %>
+    <p>
+      <strong>file:</strong>
+      <%= link_to samplefile.filename, rails_blob_path(samplefile) %> <br>
+    </p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_sample_path(@sample) %> |
+<%= link_to 'Back', samples_path %>
