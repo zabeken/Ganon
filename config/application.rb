@@ -29,5 +29,12 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    
+    # Railsで定期実行したいスクリプトを書く
+    # https://qiita.com/okamu_/items/541ac96a1380b26d95c8
+    config.autoload_paths += %W(#{config.root}/lib)
+    # 特にここ！！Rails5から productionでも呼び出せるように設定しないといけない
+    config.enable_dependency_loading = true
+
   end
 end
