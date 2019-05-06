@@ -5,6 +5,8 @@
 </template>
 
 <script>
+ActiveStorage.start()
+
 export default {
   data: function () {
     return {
