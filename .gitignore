@@ -1,5 +1,7 @@
 /log
 /tmp
+/storage
+!/storage/.keep
 !/log/.keep
 !/tmp/.keep
 /public/system
